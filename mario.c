@@ -27,6 +27,11 @@ int main(void)
             }
             printf("#");      // if the position is at and after flag, print #
         }
+        printf("")
+         for (int k = 0; k <= i; k++)
+        {
+            printf("#");      // if the position is at and after flag, print #
+        }
         printf("\n");
     }
 }
