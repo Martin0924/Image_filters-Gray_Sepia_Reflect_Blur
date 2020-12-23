@@ -7,7 +7,7 @@ int main(void)
     do
     {
         height = get_int("What is the height?\n");
-        printf("Height: %i\n", height);
+        // printf("Height: %i\n", height);
     }
     while (height < 1 || height > 8);
 
