@@ -4,6 +4,7 @@
 # include<string.h>
 # include<stdlib.h>
 
+int encrypt(int key, string plaintext);
 int main(int argc, string argv[])
 {
     if (argc != 2)
@@ -29,21 +30,42 @@ int main(int argc, string argv[])
         // printf("%i\n", key);
     // Encrypt
         string plaintext = get_string("plaintext: ");
-        int len_text = strlen(plaintext);
-        for (int j = 0; j < len_text; j++)
-        {
-            if (isalpha(plaintext[j]))
-            {
-                if (islower(plaintext[j]))
-                {
-                    plaintext[j] = (plaintext[j] - 97 + key) % 26 + 97;
-                }
-                else
-                {
-                    plaintext[j] = (plaintext[j] - 65 + key) % 26 + 65;
-                }
-            }
-        }
+        encrypt(key, plaintext);
+    //    int len_text = strlen(plaintext);
+    //    for (int j = 0; j < len_text; j++)
+    //    {
+    //        if (isalpha(plaintext[j]))
+    //        {
+    //            if (islower(plaintext[j]))
+    //            {
+    //                plaintext[j] = (plaintext[j] - 97 + key) % 26 + 97;
+    //            }
+    //            else
+    //            {
+    //                plaintext[j] = (plaintext[j] - 65 + key) % 26 + 65;
+    //            }
+    //        }
+    //    }
         printf("ciphertext: %s\n", plaintext);
     }
+}
+
+int encrypt(int key, string plaintext)
+{
+    int len_text = strlen(plaintext);
+    for (int j = 0; j < len_text; j++)
+    {
+        if (isalpha(plaintext[j]))
+        {
+            if (islower(plaintext[j]))
+            {
+                plaintext[j] = (plaintext[j] - 97 + key) % 26 + 97;
+            }
+            else
+            {
+                plaintext[j] = (plaintext[j] - 65 + key) % 26 + 65;
+            }
+        }
+    }
+    return (0);
 }
