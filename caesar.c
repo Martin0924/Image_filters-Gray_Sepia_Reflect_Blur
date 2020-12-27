@@ -25,31 +25,15 @@ int main(int argc, string argv[])
                 return (1);
             }
         }
-        int key = atoi(argv[1]);
+        int key = atoi(argv[1]);  // turn string into number
         // printf("Success\n");
         // printf("%i\n", key);
-    // Encrypt
         string plaintext = get_string("plaintext: ");
         encrypt(key, plaintext);
-    //    int len_text = strlen(plaintext);
-    //    for (int j = 0; j < len_text; j++)
-    //    {
-    //        if (isalpha(plaintext[j]))
-    //        {
-    //            if (islower(plaintext[j]))
-    //            {
-    //                plaintext[j] = (plaintext[j] - 97 + key) % 26 + 97;
-    //            }
-    //            else
-    //            {
-    //                plaintext[j] = (plaintext[j] - 65 + key) % 26 + 65;
-    //            }
-    //        }
-    //    }
         printf("ciphertext: %s\n", plaintext);
     }
 }
-
+// Encrypt function definition
 int encrypt(int key, string plaintext)
 {
     int len_text = strlen(plaintext);
@@ -59,11 +43,11 @@ int encrypt(int key, string plaintext)
         {
             if (islower(plaintext[j]))
             {
-                plaintext[j] = (plaintext[j] - 97 + key) % 26 + 97;
+                plaintext[j] = (plaintext[j] - 97 + key) % 26 + 97;  // Wrap around from z to a
             }
             else
             {
-                plaintext[j] = (plaintext[j] - 65 + key) % 26 + 65;
+                plaintext[j] = (plaintext[j] - 65 + key) % 26 + 65; // Wrap around from Z to A
             }
         }
     }
