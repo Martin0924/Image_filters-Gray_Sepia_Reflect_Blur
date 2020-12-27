@@ -34,7 +34,7 @@ int main(void)
 
 int count_letters(string text)
 {
-    int count=0;
+    int count = 0;
     int len = strlen(text);
     for (int i = 0; i < len; i++)
     {
@@ -48,11 +48,12 @@ int count_letters(string text)
 }
 
 int count_words(string text)
-{   int count_wrd = 0;
+{
+    int count_wrd = 0;
     int len = strlen(text);
     for (int i = 0; i < len; i++)
     {
-       if (text[i] == ' ')
+        if (text[i] == ' ')
         {
             count_wrd += 1;
         }
@@ -66,7 +67,7 @@ int count_sentences(string text)
     int len = strlen(text);
     for (int i = 0; i < len; i++)
     {
-       if (text[i] == '.' || text[i] == '!' || text[i] == '?' )
+        if (text[i] == '.' || text[i] == '!' || text[i] == '?')
         {
             count_stc += 1;
         }
