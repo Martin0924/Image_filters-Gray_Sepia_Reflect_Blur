@@ -1,5 +1,8 @@
 #include "helpers.h"
 #include <math.h>
+
+void swap(BYTE* x, BYTE * y);
+
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
@@ -53,7 +56,41 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
+    int swapBlue = 0, swapGreen = 0, swapRed = 0;
+ //   if (width % 2 == 0)
+ //   {
+        for (int i = 0; i < height; i++)
+        {
+            for (int j = 0; j < width / 2; j++)
+            {
+                swap(&image[i][j].rgbtBlue, &image[i][width - 1 - i].rgbtBlue);
+                swap(&image[i][j].rgbtGreen, &image[i][width - 1 - i].rgbtGreen);
+                swap(&image[i][j].rgbtRed, &image[i][width - 1 - i].rgbtRed);
+            }
+        }
+  //  }
+//    else
+//    {
+//        for (int i = 0; i < height; i++)
+//        {
+//            for (int j = 0; j < width / 2; j++)
+//            {
+//                swap(&image[i][j].rgbtBlue, &image[i][height - 1 - i].rgbtBlue);
+//                swap(&image[i][j].rgbtGreen, &image[i][height - 1 - i].rgbtGreene);
+//                swap(&image[i][j].rgbtRed, &image[i][height - 1 - i].rgbtRed);
+//            }
+//       }
+
     return;
+}
+
+
+//swap function
+void swap(BYTE* x, BYTE * y)
+{
+    BYTE sp = *x;
+    *x = *y;
+    *y = sp;
 }
 
 // Blur image
