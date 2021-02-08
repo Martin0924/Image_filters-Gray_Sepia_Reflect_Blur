@@ -123,9 +123,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 Blue_avr =  round ((image[i][j].rgbtBlue +  image[i - 1][j].rgbtBlue +  image[i - 1][j - 1].rgbtBlue +  image[i][j - 1].rgbtBlue) / 4.0);
                 Green_avr =  round ((image[i][j].rgbtGreen +  image[i - 1][j].rgbtGreen +  image[i - 1][j - 1].rgbtGreen +  image[i][j - 1].rgbtGreen) / 4.0);
                 Red_avr =  round ((image[i][j].rgbtRed +  image[i - 1][j].rgbtRed +  image[i - 1][j - 1].rgbtRed +  image[i][j - 1].rgbtRed) / 4.0);
-                image[i][j].rgbtBlue = Blue_avr;
-                image[i][j].rgbtGreen = Green_avr;
-                image[i][j].rgbtRed = Red_avr;
+                newimage[i][j].rgbtBlue = Blue_avr;
+                newimage[i][j].rgbtGreen = Green_avr;
+                newimage[i][j].rgbtRed = Red_avr;
             }
             // Edge pixels
             else if (i == 0 && j != 0 && j!= (width - 1))
